@@ -1,0 +1,13 @@
+func getLogin(completion: (objects: [JSON]) -> ()) {
+    do {
+        let params = ["type": "android", "token": "1234"]
+        
+        try HTTP.POST("\(serverURL)/aktsionka/login",  parameters: params, requestSerializer: JSONParameterSerializer()).start { response in
+            if let jsonDict = JSON(data: response.data).dictionary {
+               
+            }
+        }
+    } catch {
+        print(error)
+    }
+}
